@@ -50,8 +50,8 @@ def parse_row(row):
 
 
 def format_datetime(date_string, initial_date_format, final_date_format):
-    current_datetime = datetime.datetime.strptime(date_string, "%m/%d/%Y")
-    formatted_datetime = current_datetime.strftime('%Y-%m-%d')
+    current_datetime = datetime.datetime.strptime(date_string, initial_date_format)
+    formatted_datetime = current_datetime.strftime(final_date_format)
 
     return formatted_datetime
 
