@@ -83,3 +83,5 @@ covered_recipient_first_name and covered_recipient_last_name in subsequent years
 - Speed up QuerySet filtering and django_tables2 display and rendering on larger datasets.
 
 - Implement auto-complete by using the popular typehead.js JavaScript library rather than a standard Django form input typeahead.
+
+- Change table styling within django_tables2 to space out table search results so they are not as crowded.
