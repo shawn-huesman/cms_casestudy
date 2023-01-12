@@ -12,6 +12,8 @@ The search function works on the following fields which are considered relevant:
 
 However, when exported to Excel, all fields found in the dataset are exported.
 
+Additonally, you can sort by each field by clicking on the name in the search results.
+
 # Installation
 
 (If any of these commands do not work, try either 'python3' or 'python3.11' in place of 'python')
