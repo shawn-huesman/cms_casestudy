@@ -14,12 +14,13 @@ from .models import Payment
 
 
 relevant_fields = ["covered_recipient_first_name", "covered_recipient_last_name",
-                       "recipient_city", "recipient_state", "recipient_zip_code",
-                       "recipient_country", "covered_recipient_specialty_1",
-                       "submitting_applicable_manufacturer_or_applicable_gpo_name",
-                       "total_amount_of_payment_usdollars", "date_of_payment",
-                       "form_of_payment_or_transfer_of_value",
-                       "nature_of_payment_or_transfer_of_value"]
+                   "physician_first_name", "physician_last_name",
+                    "recipient_city", "recipient_state", "recipient_zip_code",
+                    "recipient_country", "covered_recipient_specialty_1",
+                    "submitting_applicable_manufacturer_or_applicable_gpo_name",
+                    "total_amount_of_payment_usdollars", "date_of_payment",
+                    "form_of_payment_or_transfer_of_value",
+                    "nature_of_payment_or_transfer_of_value"]
 
 
 class HomePageView(TemplateView):
