@@ -1,8 +1,11 @@
 from functools import reduce
 import operator
+import pandas as pd
+import os
 
 from django.views.generic import TemplateView
 from django.db.models import Q
+from django.http import HttpResponse
 
 import django_tables2 as tables
 from django_tables2 import SingleTableView
@@ -49,4 +52,18 @@ class SearchResultsView(SingleTableView):
         context = super().get_context_data(*args, **kwargs)
         context['query'] = self.query
         return context
+
+
+def export_excel(request, q):
+    object_list = Payment.objects.filter(reduce(operator.or_,
+                                  [Q(**{f"{field}__icontains": q}) for field in relevant_fields]))
+
+    df = pd.DataFrame(list(object_list.all().values()))
+    filename = "openpayments_{}.xls".format(q)
+    df.to_excel(filename)
+    file_path = os.path.join(os.getcwd(), filename)
+    with open(file_path, 'rb') as fh:
+        response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+        response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+        return response
 
